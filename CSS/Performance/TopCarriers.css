@@ -1,0 +1,227 @@
+#top-carriers,
+#carrier-over-time {
+	width: 790px;
+	height: 400px;
+}
+
+	#top-carriers .bcd-group,
+	#carrier-over-time .bcd-group {
+		cursor: pointer;
+		fill: rgba(255,255,255,0);
+		height: 100%;
+		stroke: none;
+	}
+
+	#top-carriers .bcd-group:hover,
+	#carrier-over-time .bcd-group:hover{
+		fill: rgba(255,255,255,.3);
+	}	
+		.volume-bar, .legend-volume, .tooltip-volume rect {
+			cursor: pointer;
+			fill: rgba(0,150,136,.7);
+			stroke: #FFFFFF;
+			stroke-opacity: .8;
+			stroke-width: 1px;
+		}
+			.bcd-group:hover .volume-bar { fill: rgba(0,150,136,1); stroke-width: 2px; }
+			.volume-bar.text, 
+			.bcd-group:hover .volume-bar.text {
+				stroke: none;
+				fill: rgba(255,255,255,1);
+			}
+		.delivery-circle, .legend-delivery, .tooltip-delivery circle {
+			fill: #d81b60;
+			fill-opacity: 1;
+			stroke: #FFFFFF;
+			stroke-opacity: .5;
+		}
+		.pickup-diamond, .legend-pickup, .tooltip-pickup rect {
+			fill: #36ff43;
+			fill-opacity: 1;
+			stroke: #FFFFFF;
+			stroke-opacity: .5;
+		}
+			.bcd-group:hover .pickup-diamond,
+			.bcd-group:hover .delivery-circle {
+				stroke-width: 3;
+			}
+		.line {
+			stroke-width: 1;
+			fill: none;
+		}
+		.avg-pickup {
+			fill: none; 
+			stroke: #ff550d;
+			stroke-dasharray: 3;
+		}
+		.avg-delivery { stroke: #038acb; fill: none; }
+		.horizontal-line {
+			stroke: #4a4a4a;
+			stroke-width: 1px;
+		}
+
+
+/*** AXIS STYLES ***/
+#top-carriers .axis, 
+#top-carriers .axis .y.label,
+#top-carriers .axis .y2.label,
+#carrier-over-time .axis, 
+#carrier-over-time .axis .y.label,
+#carrier-over-time .axis .y2.label {
+	font-size: 12px;
+	font-family: Roboto;
+	font-weight: 400;
+}
+
+#top-carriers .x.axis text,
+#carrier-over-time .x.axis text {
+	fill: rgba(255,255,255,1);
+	stroke: none;
+}
+
+#top-carriers .x.axis line,
+#top-carriers .x.axis path,
+#carrier-over-time .x.axis line,
+#carrier-over-time .x.axis path {
+	fill: none;
+	stroke: #979797;
+}
+
+#top-carriers .y.axis text,
+#top-carriers .y2.axis text,
+#carrier-over-time .y.axis text,
+#carrier-over-time .y2.axis text {
+	fill: #9b9b9b;
+	stroke: none;
+}
+
+#top-carriers .label,
+#carrier-over-time .label {
+	fill: rgba(255,255,255,1) !important;
+	shape-rendering: crispEdges;
+}
+
+#top-carriers .domain,
+#carrier-over-time .domain {
+	fill: none;
+	stroke: none;
+}
+
+/*** TOOLTIP STYLES ***/
+.TooltipHeder {
+	text-align: left;
+}
+.tooltip-avgpickup circle {
+	fill: #333;
+	fill-opacity: .8;
+	stroke: #ff550d;
+	stroke-width: 2px;
+	stroke-opacity: .5;
+}
+.tooltip-avgdelivery circle {
+	fill: #333;
+	fill-opacity: .8;
+	stroke: #038acb;
+	stroke-width: 2px;
+	stroke-opacity: .5;
+}
+.tooltip-section .chart-tooltip-row {
+	height: 24px;
+	padding: 8px 0;
+	width: 125px;
+}
+.middle {
+	padding: 0 0 0 5px;
+	text-align: left;
+}
+.chart-tooltip-row-right {
+	text-align: right;
+}
+
+/*** LEGEND STYLES ***/
+.chartlegend {
+	width: 664px;
+	margin-left: 50px;
+	text-align: justify;
+}
+	.chartlegend > button {
+		display: inline-block;
+	}
+
+	.chartlegend:after {
+		content: ' ';
+		display: inline-block;
+		width: 100%;
+		height: 0;
+	}
+	.legend-button {
+		background: black;
+		color: white;
+		height: 36px;
+		border: solid 1px rgba(255, 255, 255, 0.5);
+	}
+
+	.legend-text {
+		fill: rgba(255, 255, 255, 1);
+		font-size: 12px;
+		font-weight: normal;
+		stroke: none;
+	}
+	.legend-button[data-toggle='false'] {
+		background-color: #4a4a4a;
+		fill: #9b9b9b;
+		stroke: #9b9b9b;
+		border: 0;
+	}
+	.legend-button[data-toggle='false'] .avgDeliveryLine {
+		stroke: #9b9b9b;
+	}
+	.legend-button[data-toggle='false'] .avgPickupLine {
+		stroke: #9b9b9b;
+	}
+
+/*** SORT DROPDOWN STYLES ****/
+.sort-dropdown {
+	background: #000000;
+	color: white;
+	width: 300px;
+}
+
+.sort-dropdown-button {
+	border:solid 1px rgba(255, 255, 255, 0.5);	
+}
+
+#shipment-sort-menu .mdl-menu__item {
+	color: #ffffff;
+	margin-bottom: 10px;
+	padding: 0 32px;
+	
+}
+
+.sort-dropdown-separator {
+	color: #9b9b9b;
+}
+
+#shipment-sort-menu .mdl-menu__item:hover {
+	background-color: #282828;
+	color: rgba(255, 255, 255, 1);
+}
+
+#shipment-sort-menu .mdl-menu__item[role="separator"],
+#shipment-sort-menu .mdl-menu__item[role="separator"]:hover,
+#shipment-sort-menu .mdl-menu__item[role="separator"],
+#shipment-sort-menu .mdl-menu__item[role="separator"]:hover {
+	background-color: transparent;
+	color: rgba(255,255,255,.54);
+	font-weight: 400;
+	margin: 0;
+	padding: 0 16px;
+	text-transform: uppercase;
+}
+
+.sort-dropdown-checkbox {
+	vertical-align: central;
+	margin-bottom: 8px;
+	margin-left: 4px;
+
+}

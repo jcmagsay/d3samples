@@ -1,0 +1,204 @@
+.bcdGroup {
+	fill: rgba(255,255,255,0);
+	stroke: none;
+}
+
+#carrierPerformanceChartLevelOne .bcdGroup:hover {
+	cursor: pointer;
+	fill: rgba(255,255,255,.3);
+}
+
+
+#carrierPerformanceChartLevelOne {
+	width: 790px;
+	height: 400px;
+}
+
+#carrierPerformanceChartLevelTwo {
+	width: 790px;
+	height: 400px;
+}
+
+
+.volumeBar, .legend-volume, .tooltip-volume rect {
+	fill: rgba(0,150,136,1);
+	stroke: #FFFFFF;
+	stroke-opacity: .8;
+	shape-rendering: crispEdges;
+}
+
+
+.axis {
+	font-size: 12px;
+	font-family: Roboto;
+	font-weight: normal;
+}
+
+.xAxis text {
+	fill: white;
+	stroke: none;
+}
+
+.xAxis line {
+	fill: none;
+	stroke: #979797;
+}
+
+.xAxis path {
+	fill: none;
+	stroke: #979797;
+}
+
+.yAxis text {
+	fill: #9b9b9b;
+	stroke: none;
+}
+
+.yAxisLabel {
+	fill: white !important;
+	shape-rendering: crispEdges;
+}
+
+.yAxis .domain {
+	fill: none;
+	stroke: none;
+}
+
+.horizontalGridLines {
+	stroke: #4a4a4a;
+	stroke-width: 1px;
+}
+
+
+.deliveryCircle, .legend-delivery, .tooltip-delivery circle {
+	fill: #d81b60;
+	fill-opacity: 1;
+	stroke: #FFFFFF;
+	stroke-opacity: .5;
+}
+
+.tooltip-avgpickup circle {
+	fill: #333;
+	fill-opacity: .8;
+	stroke: #ff550d;
+	stroke-width: 2px;
+	stroke-opacity: .5;
+}
+
+.tooltip-avgdelivery circle {
+	fill: #333;
+	fill-opacity: .8;
+	stroke: #038acb;
+	stroke-width: 2px;
+	stroke-opacity: .5;
+}
+
+.chart-tooltip-row {
+	height: 20px;
+}
+
+.chart-tooltip-row-middle {
+	height: 20px;
+	text-align: left;
+	margin-left: 3px;
+}
+
+.chart-tooltip-row-right {
+	height: 20px;
+	text-align: left;
+}
+
+.legend-button {
+	background: black;
+	color: white;
+	height: 36px;
+	border: solid 1px rgba(255, 255, 255, 0.5);
+}
+
+.legend-text {
+	fill: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.pickupDiamond, .legend-pickup, .tooltip-pickup rect {
+	fill: #36ff43;
+	fill-opacity: 1;
+	stroke: #FFFFFF;
+	stroke-opacity: .5;
+}
+
+
+.carrierPerformanceChart .volumeBar:hover {
+	fill: rgba(0,150,136,.7);
+}
+
+.carrierPerformanceChart .pickupDiamond:hover,
+.carrierPerformanceChart .deliveryCircle:hover {
+	stroke-width: 3;
+}
+
+#carrierPerformanceChartLevelOne .volumeBar:hover {
+	cursor: pointer;
+}
+
+#carrierPerformanceChartLevelOne .pickupDiamond:hover,
+#carrierPerformanceChartLevelOne .deliveryCircle:hover {
+	cursor: pointer;
+}
+
+.avgPickupLine {
+	stroke: #ff550d;
+	stroke-width: 1;
+	fill: none;
+	stroke-dasharray: 3;
+}
+
+.avgDeliveryLine {
+	stroke: #038acb;
+	stroke-width: 1;
+	fill: none;
+}
+
+.legend-button[data-toggle='false'] {
+	background-color: #4a4a4a;
+	fill: #9b9b9b;
+	stroke: #9b9b9b;
+	border: 0;
+}
+
+.legend-button[data-toggle='false'] .avgDeliveryLine {
+	stroke: #9b9b9b;
+}
+
+.legend-button[data-toggle='false'] .avgPickupLine {
+	stroke: #9b9b9b;
+}
+
+
+.volumeBarText {
+	stroke: none;
+	fill: white;
+}
+
+.CarrierPerformanceChartlegend {
+	width: 664px;
+	margin-left: 50px;
+	text-align: justify;
+}
+
+.TooltipHeder {
+	text-align: left;
+}
+
+
+	.CarrierPerformanceChartlegend > button {
+		display: inline-block;
+	}
+
+	.CarrierPerformanceChartlegend:after {
+		content: ' ';
+		display: inline-block;
+		width: 100%;
+		height: 0;
+	}

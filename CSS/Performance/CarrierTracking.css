@@ -1,0 +1,101 @@
+﻿.carrier-tracking {
+	border-right: 1px solid rgba(24, 24, 24, 1);
+	min-height: 50%;
+	position: relative;
+}
+#carrier-tracking-chart { margin: 0; }
+	.carrier-tracking .axis text {
+		fill: rgba(155, 155, 155, 1);
+	}
+	.carrier-tracking .domain {
+		fill: none;
+	}
+	.carrier-tracking .tracking-goal { cursor: pointer; fill: rgba(255, 255, 255, .4); font-size: 20px; }
+	.carrier-tracking .goal-line { cursor: pointer; font-size: 20px; stroke: rgba(255, 255, 255, .4); }
+	.carrier-tracking .tracking-goal, .carrier-tracking .goal-line { transition: all 500ms ease; }
+	.carrier-tracking .goal-group:hover .tracking-goal { fill: rgba(255, 255, 255, 1); }
+	.carrier-tracking .goal-group:hover .goal-line { stroke: rgba(255, 255, 255, .7); stroke-width: 2px; }
+.tracked-carriers {
+	fill: rgba(110, 255, 120, 0.6);
+	stroke: rgba(43, 255, 0, 1);
+	stroke-width: 2px;
+}
+
+.tracked-shipments {
+	fill: rgba(43, 144, 143, 0.8);
+	stroke: rgba(0, 216, 214, 1);
+	stroke-width: 2px;
+}
+
+.hover-area { cursor: pointer; }
+
+	.dot {
+		cursor: pointer;
+		fill: rgba(58, 255, 56, .9);
+		stroke: rgba(10, 255, 10, 1);
+		stroke-width: 1px;
+	}
+	.cd-group:hover .dot {
+		fill: rgba(144, 238, 126, .9);
+		stroke: rgba(0, 175, 0, 1);
+	}
+	.diamond {
+		fill: rgba(32, 217, 215, .9);
+		stroke: rgba(0, 216, 214, 1);
+		stroke-width: 1px;
+	}
+	.cd-group:hover .diamond {
+		fill: rgba(0, 216, 214, .9);
+		stroke: rgba(43, 144, 143, 1);
+	}
+
+.chart-tooltip {
+	background-color: rgba(0, 0, 0, 1);
+	border-radius: 0;
+	border: 1px solid rgba(155, 155, 155, 1);
+}
+	.chart-tooltip .tt-date {
+		color: rgba(255, 255, 255, 1);
+		float: left;
+		font-size: 10px;
+		font-weight: 100;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+	.chart-tooltip .tt-ct-label {
+		font-size: 12px;
+	}
+	.chart-tooltip .tt-ct-value {
+		font-size: 12px;
+	}
+	.chart-tooltip .tt-vt-label {
+		font-size: 12px;
+	}
+	.chart-tooltip .tt-vt-value {
+		font-size: 12px;
+	}
+	.chart-tooltip text { fill: rgba(255, 255, 255, 1);}
+.carrier-tracking-legend { margin: 0 8px; padding: 0 8px; }
+	.carrier-tracking-legend .description { color: rgba(255,255,255,1); }
+.carrier-tracking-summary { }
+	.carrier-tracking-summary dd,
+	.carrier-tracking-summary dt {
+		color: rgba(255, 255, 255, 1);
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.carrier-tracking-summary dd { font-size: 15px; }
+	.carrier-tracking-summary dt { font-size: 12px; }	
+	.carrier-tracking-summary dd.carrier { color: rgba(56, 255, 60, 1);}
+	.carrier-tracking-summary dd.shipments { color: rgba(34, 216, 214, 1); }
+
+	.carrier-tracking-summary dl.date { padding: 8px 0 0 30px; }
+	.carrier-tracking-summary dd.date,
+	.carrier-tracking-summary dt.date {
+		color: rgba(255, 255, 255, 1);
+		font-size: 15px;
+		font-weight: 300;
+		text-align: left;
+		text-transform: capitalize;
+	}

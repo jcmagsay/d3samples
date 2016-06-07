@@ -1,0 +1,81 @@
+﻿main {
+	background-color: rgba(40, 40, 40, 1);
+}
+.perform, .virgin-view {
+	margin: 50px auto 0;
+	position: relative;
+	width: 100%;
+}
+.virgin-view { width: 1280px; }
+	.virgin-view .no-data { position: absolute; top: 0; left: 160px; }
+	.virgin-view .no-data.shipments { top: 200px; }
+	.virgin-view .top, .virgin-view .bottom { color: rgba(255, 255, 255, 1); font-size: 34px; }
+.charts {
+	display: flex;
+	flex-direction: row;
+	height: calc(100% - 77px);
+	width: 1280px;
+	margin: 0 auto;
+}
+	.charts-l {
+		align-content: flex-start;
+		height: 100%;
+		min-width: 490px;
+		position: relative;
+		width: 490px;
+	}
+	.charts-r {
+		align-content: flex-end;
+		height: 100%;
+		min-width: 790px;
+		position: relative;
+		width: 790px;
+	}
+		.charts header {
+			min-height: 50px;
+		}
+			.charts header .chart-primary-label,
+			.charts header .chart-secondary-label {
+				color: rgba(255, 255, 255, 1);
+				font-size: 14px;
+				line-height: 36px;
+			}
+			.charts header .chart-secondary-label {
+				color: rgba(255, 255, 255, 1);
+				font-size: 12px;
+				font-weight: 400;
+			}
+		.charts .chart-body {
+			
+		}
+		.charts footer {
+			max-height: 50px;
+			min-height: 50px;
+			position: absolute;
+			width: 100%;
+		}
+.mdl-grid .mdl-cell.carrier-performance__container {
+	margin: 0;
+}
+.carrier-performance__container .carrier-performance-chart { height: 400px; }
+.carrier-performance__container .carrier-performance-table { height: 260px; }
+
+.carrier-performance__container .carrier-performance-chart,
+.carrier-performance__container .carrier-performance-table {
+	min-height: 50%;
+}
+#mask {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 1px;
+	height: 100%;
+	left: 1px;
+	width: 100%;
+	z-index: 10;
+}
+
+#mask .mdl-spinner {
+	position: relative;
+	left: calc(50% - 11px);
+	top: calc(50% - 11px);
+}

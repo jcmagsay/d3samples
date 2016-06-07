@@ -1,0 +1,55 @@
+﻿.performanceMetrics {
+	background-color: rgba(22, 22, 22, 1);
+	color: rgba(255,255,255,1);
+	display: flex;
+	min-height: 75px;
+}
+	.performanceMetrics .metric {
+		align-items: flex-end;
+		padding: 16px;
+	}
+	.performanceMetrics .metric:not(:first-of-type) {
+		border-left: 1px solid rgba(74, 74, 74, 1);
+	}
+		.performanceMetrics .metric-label {
+			font-size: 14px;
+			font-weight: normal;
+			text-transform: uppercase;
+			line-height: 18px;
+		}
+		.performanceMetrics dd {
+			display: flex;
+			padding-top: 8px;
+		}
+		.performanceMetrics .pct {
+			align-self: flex-end;
+			font-size: 28px;
+			font-weight: lighter;
+			line-height: 28px;
+			margin: 0;
+			width: 65%;
+		}
+		.performanceMetrics .pct-change {
+			align-self: flex-end;
+			font-size: 15px;
+			line-height: 15px;
+			text-align: right;
+			transform: translate(0, -2px);
+			width: 35%;
+		}
+			.performanceMetrics .pct-change.negative { color: rgba(244, 52, 56, 1);}
+			.performanceMetrics .pct-change.neutral { color: rgba(255, 255, 255, .5);}
+			.performanceMetrics .pct-change.positive { color: rgba(0, 206, 108, 1);}
+					
+				.performanceMetrics .pct-change i { font-size: 22px; transform: translate(0, 6px); width: 20px; }
+				.performanceMetrics .pct-change.neutral i {
+					display: inline-block;
+					line-height: 0;
+					transform: translate(0, 2px);
+					white-space: normal;
+				}
+				.performanceMetrics .pct-change.neutral i:after {
+					content: 'arrow_drop_down';
+					display: inline-block;
+					transform: translate(0,6px);
+				}

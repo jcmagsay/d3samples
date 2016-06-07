@@ -1,0 +1,29 @@
+﻿.carrier-performance-table {
+    
+}
+
+.carrier-performance-table.scroll {
+    overflow-y: auto;
+}
+
+.carrier-performance-table table {
+    width: 100%;
+}
+
+.carrier-performance-table tr {
+    height: 30px;
+    color: #fff;
+}
+.carrier-performance-table th {
+    color: #9b9b9b;
+}
+
+.carrier-performance-table th,  .carrier-performance-table td{
+    padding-left: 16px;
+}
+.carrier-performance-table tbody tr {
+    border-bottom: rgba(24, 24, 24, 1);
+}
+.carrier-performance-table tbody tr:hover {
+    background-color: #3e3e3e;
+}
