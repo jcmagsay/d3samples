@@ -1,0 +1,39 @@
+﻿@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+
+<section class="CarrierPerformanceChartlegend chartlegend">
+	@RectLegendItem("legend-volume", "volume-bar", 30, 70, 14, 14, 0, 5, 20, 17, 80, "VOLUME")
+	@RectLegendItem("legend-pickup", "pickup-diamond", 30, 80, 14, 14, 0, 5, 30, 17, 80, "PICKUP", 45, 15)
+	@CircleLegendItem("legend-delivery", "delivery-circle", 30, 80, 7.5, 7.5, 14.5, 20, 17, 80, "DELIVERY")
+	@LineLegendItem("legend-avg-pickup", "avg-pickup", "avg-pickup", 30, 110, 0, 25, 12, 12, 30, 17, 80, "AVG PICKUP")
+	@LineLegendItem("legend-avg-delivery", "avg-delivery", "avg-delivery", 30, 110, 0, 25, 12, 12, 30, 17, 80, "AVG DELIVERY")
+</section>
+
+@helper RectLegendItem(string classname, string metric, int svgH, int svgW, int rectH, int rectW, int rectX, int rectY, int textX, int textY, int textW, string text, int rotateDeg = 0, int translateX = 0) {
+	<button class="@Button.Flat @classname legend-button" data-metric="@metric" data-toggle="true" data-bind="click: toggleChartMetric">
+		<svg class="svgContainer" height="@svgH" width="@svgW">
+			<rect height="@rectH" width="@rectW" x="@rectX" y="@rectY" transform="translate(@translateX, 0) rotate(@rotateDeg)"></rect>
+			<text class="legend-text" x="@textX" y="@textY" width="@textW">@text</text>
+		</svg>
+	</button>
+}
+
+@helper CircleLegendItem(string classname, string metric, int svgH, int svgW, double cirR, double cirX, double cirY, int textX, int textY, int textW, string text) {
+	<button class="@Button.Flat @classname legend-button" data-metric="@metric" data-toggle="true" data-bind="click: toggleChartMetric">
+		<svg class="svgContainer" height="@svgH" width="@svgW">
+			<circle r="@cirR" cx="@cirX" cy="@cirY"></circle>
+			<text class="legend-text" x="@textX" y="@textY" width="@textW">@text</text>
+		</svg>
+	</button>
+}
+
+
+@helper LineLegendItem(string btnClass, string metric, string lnClass, int svgH, int svgW, int lX, int lX2, int lY, int lY2, int textX, int textY, int textW, string text)
+{
+	<button class="@Button.Flat @btnClass legend-button" data-metric="@metric" data-toggle="true" data-bind="click: toggleChartMetric">
+		<svg class="svgContainer" height="@svgH" width="@svgW">
+			<line class="@lnClass" x1="@lX" y1="@lY" x2="@lX2" y2="@lY2"></line>
+			<text class="legend-text" x="@textX" y="@textY" width="@textW">@text</text>
+		</svg>
+	</button>
+}

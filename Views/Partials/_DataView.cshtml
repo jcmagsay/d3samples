@@ -1,0 +1,19 @@
+﻿@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+
+@* Top Level Metrics *@
+@Html.Partial("Partials/_PerformanceMetricsBar")
+
+<section class="charts">
+	<div class="charts-l">
+		@Html.Partial("Partials/_ShipmentSummary")
+		@Html.Partial("Partials/_CarrierTracking")
+	</div>
+	<article class="charts-r">
+		<section class="LevelOne" data-bind="with: topCarriersChart">
+			@Html.Partial("Partials/CarrierPerformance/_LevelOne")
+		</section>
+		<section class="LevelTwo hidden" data-bind="with: carrierOverTime">
+			@Html.Partial("Partials/CarrierPerformance/_LevelTwo")
+		</section>
+	</article>
+</section>

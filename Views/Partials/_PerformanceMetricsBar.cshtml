@@ -1,0 +1,92 @@
+﻿@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Icon = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Icon
+
+<section id="carrierPerformanceMetrics" class="@Grid.NoSpacing performanceMetrics" data-bind="with: carrierPerformanceMetrics">
+
+	<dl class="@Grid.Col2 metric">
+		<dt class="metric-label">on-time pickups</dt>
+		<dd>
+			<div class="pct" data-bind="text: OnTimePickup() + '%'"></div>
+			<div class="pct-change pull-right" data-bind="css: OnTimePickupPercentChangeColor()">
+				<span data-bind="text: OnTimePickupPercentChangeText()"></span>
+				<i class="@Icon.Material" data-bind="text: OnTimePickupPercentChangeArrow">@Icon.Type.ArrowDropDown</i>
+			</div>
+		</dd>
+	</dl>
+
+	<dl class="@Grid.Col2 metric">
+		<dt class="metric-label">on-time deliveries</dt>
+		<dd>
+			<div class="pct" data-bind="text: OnTimeDelivery() + '%'"></div>
+			<div class="pct-change pull-right" data-bind="css: OnTimeDeliveryPercentChangeColor()">
+				<span data-bind="text: OnTimeDeliveryPercentChangeText()"></span>
+				<i class="@Icon.Material" data-bind="text: OnTimeDeliveryPercentChangeArrow">@Icon.Type.ArrowDropDown</i>
+			</div>
+		</dd>
+	</dl>
+
+	<dl class="@Grid.Col2 metric">
+		<dt class="metric-label">avg transit time</dt>
+		<dd>
+			<div class="pct" data-bind="text: TransitTime() + ' days'"></div>
+			<div class="pct-change pull-right" data-bind="css: TransitTimePercentChangeColor()">
+				<span data-bind="text: TransitTimePercentChangeText()"></span>
+				<i class="@Icon.Material" data-bind="text: TransitTimePercentChangeArrow">@Icon.Type.ArrowDropDown</i>
+			</div>
+		</dd>
+	</dl>
+
+	<dl class="@Grid.Col2 metric">
+		<dt class="metric-label">avg length of haul</dt>
+		<dd>
+			<div class="pct" data-bind="text: numberWithCommas(AverageLengthOfHaul()) + ' mi'"></div>
+			<div class="pct-change pull-right" data-bind="css: AverageLengthOfHaulPercentChangeColor()">
+				<span data-bind="text: AverageLengthOfHaulPercentChangeText()"></span>
+				<i class="@Icon.Material" data-bind="text: AverageLengthOfHaulPercentChangeArrow">@Icon.Type.ArrowDropDown</i>
+			</div>
+		</dd>
+	</dl>
+
+	<dl class="@Grid.Col2 metric">
+		<dt class="metric-label">shipments picked up</dt>
+		<dd>
+			<div class="pct" data-bind="text: numberWithCommas(ShipmentsPickedUp())"></div>
+			<div class="pct-change neutral pull-right" data-bind="css: ShipmentsPickedUpPercentChangeColor()">
+				<span data-bind="text: ShipmentsPickedUpPercentChangeText()"></span>
+				<i class="@Icon.Material" data-bind="text: ShipmentsPickedUpPercentChangeArrow">@Icon.Type.ArrowDropDown</i>
+			</div>
+		</dd>
+	</dl>
+
+	<dl class="@Grid.Col2 metric">
+		<dt class="metric-label">shipments delivered</dt>
+		<dd>
+			<div class="pct" data-bind="text: numberWithCommas(ShipmentsDelivered())"></div>
+			<div class="pct-change pull-right" data-bind="css: ShipmentsDeliveredPercentChangeColor()">
+				<span data-bind="text: ShipmentsDeliveredPercentChangeText()"></span>
+				<i class="@Icon.Material" data-bind="text: ShipmentsDeliveredPercentChangeArrow">@Icon.Type.ArrowDropDown</i>
+			</div>
+		</dd>
+	</dl>
+
+	@*@* AVG - ON TIME PICKUP *@
+	@* AVG - ON TIME DELIVERY *@
+	@* AVG - TRANSIT TIME *@
+	@* AVG - LOH *@
+	@* AVG - SHIPMENTS PICKED UP *@
+	@* AVG - SHIPMENTS DELIVERED *@
+
+</section>
+
+@*@helper GenerateAverageBlock(string className, string description, string metricName, string iconType, string color) {
+	<dl class="@Grid.Col2 avg @className">
+		<dt class="avg-label">@description</dt>
+		<dd>
+			<div class="pct" data-bind="text: @metricName"></div>
+			<div class="pct-change @color pull-right">
+				<span data-bind="text: @metricName + '%'"></span>
+				<i class="@Icon.Material">@iconType</i>
+			</div>
+		</dd>
+	</dl>
+}*@

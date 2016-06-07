@@ -1,0 +1,45 @@
+﻿@using TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi
+@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+@using Menu = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Menu
+@using Icon = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Icon
+
+<header class="@Grid.Grid">
+	<label class="@Grid.Col3 chart-primary-label">CARRIER PERFORMANCE</label>
+
+	<div id="shipment-sort-menu" class="@Grid.Col3 @Button.DropdownBtnMenu">
+		<button id="carriersort-dropdown-btn" class="@Button.Flat sort-dropdown sort-dropdown-button">
+			<span class="chart-primary-label" data-bind="text: carrierSortMenu.currentSortText"></span>
+			<i class="@Icon.Material" role="presentation">arrow_drop_down</i>
+		</button>
+		<ul for="carriersort-dropdown-btn" class="@Menu.BottomRight sort-dropdown">
+			<li class="@Menu.Item" disabled role="separator">Volume</li>
+			<li class="@Menu.Item" data-bind="click: sortByMetric" data-metric="0" data-sort="1">Greatest to Least</li>
+			<li class="@Menu.Item" data-bind="click: sortByMetric" data-metric="0" data-sort="-1">Least to greatest</li>
+			<li class="@Menu.Item" disabled role="separator">On-Time Pickup</li>
+			<li class="@Menu.Item" data-bind="click: sortByMetric" data-metric="1" data-sort="1">Best to Worst</li>
+			<li class="@Menu.Item" data-bind="click: sortByMetric" data-metric="1" data-sort="-1">Worst to Best</li>
+			<li class="@Menu.Item" disabled role="separator">On-Time Delivery</li>
+			<li class="@Menu.Item" data-bind="click: sortByMetric" data-metric="2" data-sort="1">Best to Worst</li>
+			<li class="@Menu.Item" data-bind="click: sortByMetric" data-metric="2" data-sort="-1">Worst to Best</li>
+			@*<li class="sort-dropdown-separator" disabled>Carrier Frequency</li>
+			<li class="sort-dropdown-menuitem" ><input type="checkbox" data-bind="checked:sortedByHighestFrequency" />Highest to Lowest</li>
+			<li class="sort-dropdown-menuitem" ><input type="checkbox" data-bind="checked:sortedByLowestFrequency" />Lowest to Highest</li>*@
+
+		</ul>
+	</div>
+
+    <div class="@Grid.Col6 @Typography.Right">
+        <button class="@Button.FlatRipple @Button.ActionText" data-bind="click: viewReport">view performance report</button>
+    </div>
+
+</header>
+<section class="@Grid.Grid">
+
+	<div class="@Grid.Col12 carrier-performance__container levelOneContainer">
+		@Html.Partial("Partials/CarrierPerformance/_ChartLevelOne")
+		@Html.Partial("Partials/CarrierPerformance/_Legend")
+		@Html.Partial("Partials/CarrierPerformance/_TableLevelOne")
+	</div>
+</section>

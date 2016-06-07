@@ -1,0 +1,120 @@
+﻿@using TenFour.CommonContent.Web.Bundles
+@using TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi
+@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+
+@{
+	Layout = "~/Views/Shared/_MasterLayoutMaterial.cshtml";
+	ViewBag.Title = "Dashboard";
+}
+
+@section ModalsSection {
+	<div id="mask" style="display: none;"><div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div></div>
+}
+
+@section CssDependencies {
+	<link href="~/Content/CSS/AppFilterBar.css" rel="stylesheet" />
+	<link href="~/Content/CSS/Filters.css" rel="stylesheet" />
+	<link href="~/Content/CSS/SavedViews.css" rel="stylesheet" />
+
+	<link href="~/Content/CSS/Dashboard/Performance/PerformanceMetrics.css" rel="stylesheet"/>
+	<link href="~/Content/CSS/Dashboard/Performance/TopCarriers.css" rel="stylesheet"/>
+	<link href="~/Content/CSS/Dashboard/Performance/CarrierPerformanceChart.css" rel="stylesheet" />
+	<link href="~/Content/CSS/Dashboard/Performance/CarrierPerformanceTable.css" rel="stylesheet" />
+	<link href="~/Content/CSS/Dashboard/Performance/CarrierTracking.css" rel="stylesheet" />
+	<link href="~/Content/CSS/Dashboard/Performance/PerformancePage.css" rel="stylesheet" />
+	<link href="~/Content/CSS/Dashboard/Performance/ShipmentSummary.css" rel="stylesheet" />
+}
+
+@section MaterialBodySection {
+
+	<section class="fp--filter-bar" data-bind="with: appFilterBar">
+		@Html.Partial("~/Views/Shared/Partials/_AppFilterBar.cshtml")
+	</section>
+
+	<aside id="db--filter-drawer" class="filter-tabs @Constants.Shadow.Dp16" data-bind="with:filterDrawer" style="display: none;">
+		<section class="@Constants.Tabs.Base">
+			<div class="@Constants.Tabs.Bar">
+				<a href="#filter-panel" class="@Constants.Tabs.Tab filter is-active">FILTERS</a>
+				<a href="#saved-views-panel" class="@Constants.Tabs.Tab saved-views">SAVED VIEWS</a>
+			</div>
+			<div class="mdl-tabs__panel is-active" id="filter-panel" data-bind="with: filters">
+				<div id="progress__filters" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+				@Html.Partial("~/Views/Shared/Partials/_Filters.cshtml")
+			</div>
+			<div class="mdl-tabs__panel" id="saved-views-panel" data-bind="with: savedViews">
+				<div id="progress__saved-views" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+				@Html.Partial("~/Views/Shared/Partials/_SavedViews.cshtml")
+			</div>
+		</section>
+	</aside>
+	<section class="perform" data-bind="visible: !showVirginView()">
+		@Html.Partial("Partials/_DataView")
+	</section>
+	<section class="virgin-view" data-bind="visible: showVirginView">
+		@Html.Partial("Partials/_VirginView")
+	</section>
+}
+
+@section TooltipSection {
+	@Html.Partial("Partials/CarrierPerformance/_Tooltip")
+}
+
+@section ScriptDependencies {
+	<script src="@SharedContent.Script("D3/d3.min.js")"></script>
+	<script src="http://d3js.org/queue.v1.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script src="@SharedContent.Script("D3/radialProgress.js")"></script>
+	<script src="~/Scripts/numeral.js"></script>
+
+	<script src="~/TScripts/WebService/DashboardWebService.js"></script>
+	<script src="~/TScripts/WebService/FilterWebService.js"></script>
+	<script src="~/TScripts/WebService/ServerModels.js"></script>
+	<script src="~/TScripts/Utilities/SavedFilterView.js"></script>
+	<script src="~/TScripts/Utilities/FilterClause.js"></script>
+
+
+	@*Models*@
+	<script src="~/TScripts/Performance/Models/ChartContainer.js"></script>
+	<script src="~/TScripts/Performance/Models/ChartTooltip.js"></script>
+	<script src="~/TScripts/Performance/Models/PerformanceEnums.js"></script>
+
+	@*Utilities*@
+    <script src="~/TScripts/Performance/Utilities/ShipmentSummaryReport.js"></script>
+    <script src="~/TScripts/Utilities/FilterProvider.js"></script>
+
+	@* View Models *@
+	<script src="~/TScripts/Shared/ViewModels/FilterList.js"></script>
+	<script src="~/TScripts/Shared/ViewModels/AppFilterBar.js"></script>
+	<script src="~/TScripts/Shared/ViewModels/FilterDrawer.js"></script>
+	<script src="~/TScripts/Shared/ViewModels/Filters.js"></script>
+	<script src="~/TScripts/Shared/ViewModels/SavedViews.js"></script>
+    <script src="~/TScripts/Performance/ViewModels/CarrierPerformanceLevelOneTable.js"></script>
+	<script src="~/TScripts/Performance/ViewModels/TopCarrierPerformanceChart.js"></script>
+    <script src="~/TScripts/Performance/ViewModels/CarrierPerformanceLevelTwoTable.js"></script>
+	<script src="~/TScripts/Performance/ViewModels/CarrierOverTimeChart.js"></script>
+	<script src="~/TScripts/Performance/ViewModels/CarrierTracking.js"></script>
+	<script src="~/TScripts/Performance/ViewModels/CarrierSort.js"></script>
+	<script src="~/TScripts/Performance/ViewModels/CarrierPerformanceMetricsBar.js"></script>
+	<script src="~/TScripts/Performance/ViewModels/ShipmentSummary.js"></script>
+    <script src="~/TScripts/Performance/ViewModels/ShipmentSummaryProse.js"></script>
+    
+	<script src="~/TScripts/Performance/PerformancePage.js"></script>
+
+}
+
+@section FooterScripts {
+	<script>
+		var $page = $(".mdl-layout__content");
+		var pageModel = new TenFour.Dashboard.Performance.Page(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(UserCapabilities)));
+		var $tooltipSection = $("body > .tooltip-section")[0];
+		ko.applyBindings(pageModel, $page[0]);
+		ko.applyBindings(pageModel, $tooltipSection);
+        var $mask = $("#mask");
+        $mask.show();
+		$(document).ready(function () {
+			setTimeout(pageModel.init.bind(pageModel), 500);
+		});
+	</script>
+}

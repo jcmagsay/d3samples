@@ -1,0 +1,43 @@
+﻿@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Tooltip = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Tooltip
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+
+<article class="carrier-tracking" data-bind="with: carrierTrackingChart">
+	<header class="@Grid.Grid">
+	    <label class="@Grid.Col6 chart-primary-label">CARRIER TRACKING</label>
+        <div class="@Grid.Col6 @Typography.Right">
+            <button class="@Button.FlatRipple @Button.ActionText" data-bind="click: viewReport">view tracking report</button>
+        </div>
+	</header>
+	<section class="@Grid.Grid chart-body">
+		<section id="carrier-tracking-chart" class="@Grid.Col12 @Typography.Display2"></section>
+		<section class="@Grid.Col12 carrier-tracking-legend">
+			<div class="@Grid.Grid">
+				<div class="@Grid.Col6 mdl-textfield--align-right">
+					<img src="~/Content/Images/legend-carrier.svg" />
+					<span class="description">% OF CARRIERS</span>
+				</div>
+				<div class="@Grid.Col6">
+					<img src="~/Content/Images/legend-volume.svg" />
+					<span class="description">% OF VOLUME</span>
+				</div>
+			</div>
+		</section>
+		<section class="@Grid.Grid carrier-tracking-summary" data-bind="with: summaryData">
+			@GenerateSummaryDetail(Grid.Col4, "dateStart", "dateEnd", "date")
+			@GenerateSummaryDetail(Grid.Col2, "operatingCarriers", "'Operating Carriers'", "carrier")
+			@GenerateSummaryDetail(Grid.Col2, "carriersTracked", "'Carriers Tracked'", "carrier")
+			@GenerateSummaryDetail(Grid.Col2, "shipmentVolume", "'Shipment Volume'", "shipments")
+			@GenerateSummaryDetail(Grid.Col2, "volumeTracked", "'Volume Tracked'", "shipments")
+		</section>
+	</section>
+</article>
+
+@helper GenerateSummaryDetail(string colSize, string dd, string dt, string type = "")
+{
+	<dl class="@colSize @type">
+		<dd class="@type" data-bind="text: @dd"></dd>
+		<dt class="@type" data-bind="text: @dt"></dt>
+	</dl>
+}	

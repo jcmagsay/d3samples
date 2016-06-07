@@ -1,0 +1,30 @@
+﻿@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Tooltip = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Tooltip
+
+<section id="tooltipcontainer" data-bind="foreach: observableTooltipCollection">
+
+	<div class="@Tooltip.Base chart-tooltip" data-bind="attr: {for: $data.tooltipIdentifier}">
+		<header class="@Grid.NoSpacing">
+			<div class="@Grid.Col12 TooltipHeder">
+				<span data-bind="text: $data.tooltipHeader"></span>
+			</div>
+		</header>
+		<section class="tooltip-body">
+			@TooltipRow("tooltip-volume", "Volume", "$data.volume")
+			@TooltipRow("tooltip-pickup", "Pickup", "$data.pickupPercent")
+			@TooltipRow("tooltip-delivery", "Delivery", "$data.deliveryPercent")
+			@TooltipRow("tooltip-avgpickup", "Avg Pickup", "$data.avgPickupPercent")
+			@TooltipRow("tooltip-avgdelivery", "Avg Delivery", "$data.avgDeliveryPercent")
+		</section>
+	</div>
+</section>
+
+
+@helper TooltipRow(string rowType, string text, string datafield)
+{
+	<div class="@Grid.NoSpacing chart-tooltip-row">
+		<div class="@Grid.Col2 @rowType left"></div>
+		<div class="@Grid.Col7 middle">@text</div>
+		<div class="@Grid.Col2 right" data-bind="text: @datafield"></div>
+	</div>
+}

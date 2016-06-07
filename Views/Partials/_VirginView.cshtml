@@ -1,0 +1,16 @@
+﻿@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+
+<section class="virgin-view">
+	<img src="~/Content/Images/performance-virgin-view.png" height="849" width="1280" />
+	<section class="@Typography.Display4 no-data daterange" data-bind="visible: hasShipments">
+		<img src="~/Content/Images/arrow.svg" />
+		<div class="@Typography.Center top">There are no completed shipments within the selected date range,</div>
+		<div class="@Typography.Center bottom">so if data is what you want then that’s what you should change.</div>
+	</section>
+	<section class="@Typography.Display4 no-data shipments" data-bind="visible: !hasShipments()">
+		<div class="@Typography.Center top">Once you ship it, performance stats will come;</div>
+		<div class="@Typography.Center bottom">So visit the <a href="/FreightPortal">Freight Portal</a>, to start generating some.
+		</div>
+	</section>
+</section>

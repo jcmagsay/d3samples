@@ -1,0 +1,50 @@
+﻿@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+@using Selectors = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Selection
+<article class="shipment-summary" data-bind="with: shipmentSummary">
+	<header class="@Grid.Grid">
+	    <label class="@Grid.Col6 chart-primary-label"><span data-bind="text: lifeCycleSummary"></span> LIFECYCLE SUMMARY</label>
+        <div class="@Grid.Col6 @Typography.Right"><button class="@Button.FlatRipple @Button.ActionText" data-bind="click: viewReport">view shipment log</button></div>
+
+
+	    <div id="shipment-summary-chronology-picker">
+	        <div class="shipment-summary-chronology-picker-label">Starting With:</div>
+	        <label class="mdl-radio mdl-js-radio" for="shipment-summary-by-pickup-option" data-bind="mdlRadio: orderBy">
+	            <input id="shipment-summary-by-pickup-option" class="@Selectors.RadioInput" type="radio" name="orderBy" value="inOrder" data-bind="checked: orderBy"/>
+	            <span class="mdl-radio__label">PICKUP</span>
+	        </label>
+	        <label class="mdl-radio mdl-js-radio" for="shipment-summary-by-delivery-option" data-bind="mdlRadio: orderBy">
+	            <input id="shipment-summary-by-delivery-option" class="@Selectors.RadioInput" type="radio" name="orderBy" value="inverseOrder" data-bind="checked: orderBy"/>
+	            <span class="mdl-radio__label">DELIVERY</span>
+	        </label>
+	    </div>
+	</header>
+	<section class="@Grid.Grid chart-body">
+	    <div class="@Grid.Col12" id="shipment-summary-chart">
+	        <div id="shipment-summary-explination" style="visibility: hidden">
+	            <div id="shipment-summary-percentage"></div>
+	            <div id="shipment-summary-prose"></div>
+	        </div>
+	        <div id="shipment-summary-default" style="display: none">
+	            <div id="shipment-summary-count">--</div> shipments
+	        </div>
+	    </div>
+        <span class="chart-secondary-label mdl-typography--text-right" id="shipment-summary-sequence"></span>
+	    <div id="shipment-summary-legend"></div>
+        <div class="chart-tooltip mdl-tooltip mdl-tooltip--large" for="early-info-icon">
+            Shipments are categorized as "Early" when the actual pickup or delivery times are 30 minutes or more before the scheduled time.
+        </div>
+        <div class="chart-tooltip mdl-tooltip mdl-tooltip--large" for="on-time-info-icon">
+            Shipments are categorized as "On Time" when the actual pickup or delivery times are less than 30 minutes before and less than 30 minutes after the scheduled time.
+        </div>
+	    <div class="chart-tooltip mdl-tooltip mdl-tooltip--large" for="late-info-icon">
+            Shipments are categorized as "Late" when the actual pickup or delivery times are 30 minutes or more after the scheduled time.
+	    </div>
+        <div class="chart-tooltip mdl-tooltip mdl-tooltip--large" for="unavailable-info-icon">
+            Shipment times are categorized as 'unavailable' when the actual pickup or delivery times are not provided for a shipment.
+        </div>
+
+	</section>
+
+</article>

@@ -1,0 +1,32 @@
+﻿@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+
+<section class="@Grid.NoSpacing carrier-performance-table scroll" data-bind="with: table">
+    <table>
+        <thead>
+            <tr>
+                <th>Delivery Date</th>
+                <th class="@Typography.Right">Volume</th>
+                <th class="@Typography.Right">On-Time Pickup</th>
+                <th class="@Typography.Right">Avg. Pickup</th>
+                <th class="@Typography.Right">On-Time Delivery</th>
+                <th class="@Typography.Right">Avg. Delivery</th>
+                <th class="@Typography.Right">Tracking</th>
+                <th class="@Typography.Right">Equipment</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: rows">
+            <tr>
+                <td data-bind="text: TooltipHeader"></td>
+                <td class="@Typography.Right" data-bind="text: Volume"></td>
+                <td class="@Typography.Right" data-bind="text: numeral(Pickup / 100).format('0%')"></td>
+                <td class="@Typography.Right" data-bind="text: numeral(AverageCarrierPickupPercent / 100).format('0%')"></td>
+                <td class="@Typography.Right" data-bind="text: numeral(Delivery / 100).format('0%')"></td>
+                <td class="@Typography.Right" data-bind="text: numeral(AverageCarrierDeliveryPercent / 100).format('0%')"></td>
+                <td class="@Typography.Right" data-bind="text: numeral(TrackingPercent).format('0%')"></td>
+                <td class="@Typography.Right" data-bind="text: App.Enums.containerTypeLabel[ContainerType]"></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

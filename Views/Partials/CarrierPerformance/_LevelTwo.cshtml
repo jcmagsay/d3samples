@@ -1,0 +1,23 @@
+﻿@using TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi
+@using Button = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Button
+@using Grid = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.GridLayout
+@using Icon = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Icon
+@using Typography = TenFour.CommonContent.Web.Utilities.UIComponent.MaterialUi.Constants.Typography
+
+<header class="@Grid.Grid">
+	<button id="go-back" class="@Grid.Col4 @Button.Flat" data-bind="click:showLevelOne">
+		<i class="@Icon.Material @Icon.Color.White" role="presentation">@Icon.Type.KeyboardBackspace</i>
+		<span class="chart-primary-label" data-bind="text: 'Back to Carriers'"></span>
+	</button>
+    <label class="@Grid.Col4 @Typography.Caption chart-primary-label mdl-typography--text-center" data-bind="text: carrierName"></label>
+    <div class="@Grid.Col4 @Typography.Right">
+        <button class="@Button.FlatRipple @Button.ActionText" data-bind="click: viewReport">view shipment log</button>
+    </div>
+</header>
+<section class="@Grid.Grid">
+	<div class="@Grid.Col12 carrier-performance__container levelTwoContainer">
+		@Html.Partial("Partials/CarrierPerformance/_ChartLevelTwo")
+		@Html.Partial("Partials/CarrierPerformance/_Legend")
+		@Html.Partial("Partials/CarrierPerformance/_TableLevelTwo")
+	</div>
+</section>
